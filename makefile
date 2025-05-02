@@ -7,3 +7,9 @@ up:
 
 down:
 	$(COMPOSE) down
+
+lint:
+	$(EXEC) composer analyse
+
+lint-fix:
+	$(EXEC) composer fixer
