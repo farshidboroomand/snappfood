@@ -6,10 +6,11 @@ use Exception;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Modules\V1\Users\Events\UserCreated;
-use Modules\V1\Wallets\Models\Wallet;
+use Modules\V1\Wallets\Enums\TransactionType;
+use Modules\V1\Wallets\Events\WithdrawalCreated;
+use Modules\V1\Wallets\Models\WalletTransaction;
 
-class CreateUserWallet implements ShouldQueue
+class LogWalletBlockedAfterCreatingWithdrawalRequest implements ShouldQueue
 {
     public int $tries = 3;
 
@@ -18,19 +19,20 @@ class CreateUserWallet implements ShouldQueue
     /**
      * Handle the event.
      */
-    public function handle(UserCreated $event): void
+    public function handle(WithdrawalCreated $event): void
     {
         try {
             DB::transaction(static function () use ($event) {
-                $wallet = Wallet::lockForUpdate()->firstOrNew([
-                    'user_id' => $event->user->id,
+                WalletTransaction::create([
+                    'wallet_id' => $event->withdrawal->wallet_id,
+                    'amount'    => $event->withdrawal->amount,
+                    'type'      => TransactionType::BLOCKED->value,
+                    'note'      => __('wallets.wallet_transaction.amount_blocked')
                 ]);
-
-                $wallet->save();
             });
         } catch (Exception $ex) {
-            Log::error(__('wallets.create_wallet_failed'), [
-                'user_id' => $event->user->id,
+            Log::error(__('wallets.wallet_transaction.block_failed'), [
+                'user_id' => $event->withdrawal->user_id,
                 'error'   => $ex->getMessage(),
             ]);
         }

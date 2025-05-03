@@ -16,12 +16,17 @@ class GetAllUsers extends Action
 {
     public function execute(): JsonResponse
     {
+        /** @var int $page */
+        $page = $this->request->input('page', 1);
+        /** @var int $perPage */
+        $perPage = $this->request->input('per_page', $this->per_page);
         try {
+            $key = UserCacheKeys::USER_LIST_CACHE_KEY->value . ":page:$page:perPage:$perPage";
             $users = Cache::remember(
-                key: UserCacheKeys::USER_LIST_CACHE_KEY->value,
+                key: $key,
                 ttl: UserCacheTTLs::USER_LIST_CACHE_TTL->value,
-                callback: function () {
-                    return User::query()->paginate($this->per_page);
+                callback: function () use ($perPage, $page) {
+                    return User::query()->paginate($perPage, ['*'], 'page', $page);
                 }
             );
         } catch (Exception $ex) {

@@ -160,6 +160,7 @@ abstract class Action
         return new JsonResponse(
             [
                 'message' => $message,
+                'code'    => $statusCode
             ],
             $statusCode->value
         );

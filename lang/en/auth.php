@@ -19,5 +19,11 @@ return [
     'users' => [
         'get_list_failed' => 'Cannot get users list',
         'register_failed' => 'Cannot register user'
+    ],
+    'profile' => [
+        'not_found'         => 'Profile not found',
+        'cannot_be_created' => 'User profile cannot be created',
+        'cannot_be_updated' => 'User profile cannot be updated',
+        'updated'           => 'Profile updated successfully'
     ]
 ];

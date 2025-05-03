@@ -2,8 +2,6 @@
 
 namespace Modules\V1\Users\Observers;
 
-namespace Modules\V1\Users\Observers;
-
 use Illuminate\Support\Facades\Cache;
 use Modules\V1\Users\Enums\UserCacheKeys;
 use Modules\V1\Users\Events\UserCreated;

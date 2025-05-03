@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Modules\V1\Users\Models\User;
 use Modules\V1\Users\Observers\UserObserver;
+use Modules\V1\Wallets\Models\Withdrawal;
+use Modules\V1\Wallets\Observers\WithdrawalObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         User::observe(UserObserver::class);
+        Withdrawal::observe(WithdrawalObserver::class);
     }
 }

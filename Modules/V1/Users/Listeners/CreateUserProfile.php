@@ -1,15 +1,14 @@
 <?php
 
-namespace Modules\V1\Wallets\Listeners;
+namespace Modules\V1\Users\Listeners;
 
-use Exception;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Modules\V1\Users\Events\UserCreated;
-use Modules\V1\Wallets\Models\Wallet;
+use Modules\V1\Users\Models\UserProfile;
 
-class CreateUserWallet implements ShouldQueue
+class CreateUserProfile implements ShouldQueue
 {
     public int $tries = 3;
 
@@ -22,16 +21,16 @@ class CreateUserWallet implements ShouldQueue
     {
         try {
             DB::transaction(static function () use ($event) {
-                $wallet = Wallet::lockForUpdate()->firstOrNew([
+                $wallet = UserProfile::lockForUpdate()->firstOrNew([
                     'user_id' => $event->user->id,
                 ]);
 
                 $wallet->save();
             });
-        } catch (Exception $ex) {
-            Log::error(__('wallets.create_wallet_failed'), [
+        } catch (\Throwable $e) {
+            Log::error(__('auth.profile.cannot_be_created'), [
                 'user_id' => $event->user->id,
-                'error'   => $ex->getMessage(),
+                'error'   => $e->getMessage(),
             ]);
         }
     }

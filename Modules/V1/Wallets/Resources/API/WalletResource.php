@@ -18,8 +18,8 @@ class WalletResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'walletId' => $this->id,
-            'user'     => $this->whenLoaded('user', function () {
+            'wallet_id' => $this->id,
+            'user'      => $this->whenLoaded('user', function () {
                 return new UserResource($this->user);
             }),
         ];
