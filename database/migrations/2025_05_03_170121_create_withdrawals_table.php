@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Modules\V1\Wallets\Enums\WithdrawalStatus;
 
 return new class () extends Migration {
     /**
@@ -26,6 +27,7 @@ return new class () extends Migration {
 
             $table->double('amount');
             $table->text('note')->nullable();
+            $table->enum('status', WithdrawalStatus::list())->default(WithdrawalStatus::PENDING);
             $table->timestamp('approved_at')->nullable();
             $table->timestamp('rejected_at')->nullable();
             $table->timestamps();

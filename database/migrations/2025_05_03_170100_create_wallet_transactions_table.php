@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Modules\V1\Wallets\Enums\TransactionTypeEnum;
+use Modules\V1\Wallets\Enums\TransactionType;
 
 return new class () extends Migration {
     /**
@@ -15,12 +15,11 @@ return new class () extends Migration {
             $table->uuid('id')->primary();
 
             $table->foreignUuid('wallet_id')
-                  ->unique()
                   ->constrained('wallets')
                   ->onDelete('cascade');
 
             $table->double('amount');
-            $table->enum('type', TransactionTypeEnum::list());
+            $table->enum('type', TransactionType::list());
             $table->text('note')->nullable();
 
             $table->timestamps();
