@@ -17,10 +17,10 @@ class UserProfileResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'          => $this->id,
-            'userId'      => $this->user_id,
-            'shebaNumber' => $this->whenNotNull($this->sheba_number),
-            'nationalId'  => $this->whenNotNull($this->national_id),
+            'id'           => $this->id,
+            'user_id'      => $this->user_id,
+            'sheba_number' => $this->whenNotNull($this->sheba_number),
+            'national_id'  => $this->whenNotNull($this->national_id),
         ];
     }
 }
