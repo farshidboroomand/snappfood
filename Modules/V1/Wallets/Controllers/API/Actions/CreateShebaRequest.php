@@ -7,6 +7,7 @@ use App\Http\Responses\ErrorCode;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
+use Modules\V1\Wallets\Enums\WithdrawalStatus;
 use Modules\V1\Wallets\Models\Wallet;
 use Modules\V1\Wallets\Models\Withdrawal;
 use Modules\V1\Wallets\Resources\API\WithdrawalResource;
@@ -43,7 +44,8 @@ class CreateShebaRequest extends Action
                    'from_sheba_number' => $inputs['from_sheba_number'],
                    'to_sheba_number'   => $inputs['to_sheba_number'],
                    'amount'            => $inputs['price'],
-                   'note'              => $inputs['note'] ?? null
+                   'note'              => $inputs['note'] ?? null,
+                   'status'            => WithdrawalStatus::PENDING->value
                 ]);
             });
         } catch (Exception $ex) {
@@ -55,7 +57,7 @@ class CreateShebaRequest extends Action
             );
         }
 
-        return $this->resourceResponse(new WithdrawalResource($withdrawalRequest));
+        return $this->resourceResponse(new WithdrawalResource($withdrawalRequest), __('wallets.withdrawals.created_successfully'));
     }
 
     protected function rules(): array
