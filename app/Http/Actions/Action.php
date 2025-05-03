@@ -5,10 +5,12 @@ namespace App\Http\Actions;
 use App\Http\Responses\ErrorCode;
 use App\Http\Responses\PaginationResponse;
 use App\Http\Responses\StatusCode;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -96,8 +98,11 @@ abstract class Action
         );
     }
 
+    /**
+     * @param Collection|LengthAwarePaginator $collection
+     */
     protected function dataCollectionResponse(
-        Collection $collection,
+        Arrayable $collection,
         ?array $meta = [],
         StatusCode $statusCode = StatusCode::OK,
         bool $paginated = false,
@@ -107,10 +112,26 @@ abstract class Action
         $page = $page ?? $this->request->input('page', 1);
         $perPage = $perPage ?? $this->request->input('per_page', 15);
 
+        // If it's a paginator, return pagination-aware response
+        if ($collection instanceof LengthAwarePaginator) {
+            return new JsonResponse([
+                'data' => $collection->items(),
+                'meta' => array_filter(array_merge([
+                    'total'        => $collection->total(),
+                    'per_page'     => $collection->perPage(),
+                    'current_page' => $collection->currentPage(),
+                    'last_page'    => $collection->lastPage(),
+                ], (array)$meta)),
+            ], $statusCode->value);
+        }
+
+        // Otherwise treat as a Collection
         if ($paginated || $this->request->input('paginated', false)) {
+            $count = $collection->count();
+
             return (new PaginationResponse(
                 $collection->forPage($page, $perPage),
-                $collection->count(),
+                $count,
                 $perPage,
                 $page,
                 (array)$meta,
@@ -123,7 +144,7 @@ abstract class Action
                 'data' => $collection,
                 'meta' => array_filter((array)$meta),
             ]),
-            $statusCode->value,
+            $statusCode->value
         );
     }
 

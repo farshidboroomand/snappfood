@@ -17,6 +17,7 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     'users' => [
+        'get_list_failed' => 'Cannot get users list',
         'register_failed' => 'Cannot register user'
     ]
 ];
