@@ -4,15 +4,15 @@ namespace Modules\V1\Wallets\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Modules\V1\Wallets\Enums\TransactionTypeEnum;
+use Modules\V1\Wallets\Enums\TransactionType;
 use Ramsey\Uuid\Uuid;
 
 /**
- * @property string              $id
- * @property string              $wallet_id
- * @property int                 $amount
- * @property TransactionTypeEnum $type
- * @property string              $note
+ * @property string          $id
+ * @property string          $wallet_id
+ * @property int             $amount
+ * @property TransactionType $type
+ * @property string          $note
  */
 class WalletTransaction extends Model
 {

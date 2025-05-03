@@ -4,7 +4,7 @@ namespace Modules\V1\Wallets\Enums;
 
 use App\Foundation\Enums\EnumValueListing;
 
-enum TransactionTypeEnum: string
+enum TransactionType: string
 {
     use EnumValueListing;
     case INCREASE = 'Increase';

@@ -10,9 +10,12 @@ return [
     'wallet_transaction'   => [
         'increase_failed' => 'Wallet increase failed',
         'initial_amount'  => 'Wallet initial balance',
+        'amount_blocked'  => 'Wallet amount is blocked',
+        'block_failed'    => 'Cannot log blocked amount in transactions',
     ],
     'withdrawals' => [
         'cannot_be_created'          => 'Withdrawal request cannot be created',
-        'sheba_numbers_are_the_same' => 'Sheba numbers cannot be the same'
+        'sheba_numbers_are_the_same' => 'Sheba numbers cannot be the same',
+        'created_successfully'       => 'Withdrawal request created successfully'
     ]
 ];

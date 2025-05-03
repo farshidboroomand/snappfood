@@ -17,10 +17,13 @@ class WithdrawalResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id'                => $this->id,
             'amount'            => (int)$this->amount,
             'from_sheba_number' => $this->from_sheba_number,
             'to_sheba_number'   => $this->to_sheba_number,
-            'note'              => $this->note
+            'note'              => $this->note,
+            'status'            => $this->status,
+            'created_at'        => $this->created_at
         ];
     }
 }

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Modules\V1\Users\Models\User;
 use Modules\V1\Users\Models\UserProfile;
-use Modules\V1\Wallets\Enums\TransactionTypeEnum;
+use Modules\V1\Wallets\Enums\TransactionType;
 use Modules\V1\Wallets\Models\Wallet;
 use Modules\V1\Wallets\Models\WalletTransaction;
 
@@ -35,7 +35,7 @@ class UserWithWalletSeeder extends Seeder
                 WalletTransaction::create([
                     'wallet_id' => $wallet->id,
                     'amount'    => $wallet->available_balance,
-                    'type'      => TransactionTypeEnum::INCREASE->value,
+                    'type'      => TransactionType::INCREASE->value,
                     'note'      => __('wallets.wallet_transaction.initial_amount')
                 ]);
             });
