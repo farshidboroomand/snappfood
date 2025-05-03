@@ -2,17 +2,25 @@
 
 namespace Modules\V1\Users\Models;
 
-use Ramsey\Uuid\Uuid;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as AuthenticatableUser;
-use Modules\V1\Users\Enums\UserStatus;
+use Illuminate\Support\Facades\Hash;
+use Ramsey\Uuid\Uuid;
 
+/**
+ * @property string $id
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ * @property string $mobile
+ * @property string $password
+ */
 class User extends AuthenticatableUser
 {
     use HasFactory;
 
     public $incrementing = false;
+
     protected $keyType = 'string';
 
     /**

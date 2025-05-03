@@ -33,6 +33,7 @@ class CreateNewUser extends Action
                 message: __('auth.users.register_failed')
             );
         }
+
         return $this->resourceResponse(new UserResource($user));
     }
 
