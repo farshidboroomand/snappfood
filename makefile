@@ -13,3 +13,11 @@ lint:
 
 lint-fix:
 	$(EXEC) composer fixer
+
+migrate-fresh:
+	$(EXEC) php artisan migrate:fresh --seed
+
+clear:
+	$(EXEC) php artisan config:clear
+	$(EXEC) php artisan route:clear
+	$(EXEC) php artisan cache:clear
