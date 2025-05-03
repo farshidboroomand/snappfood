@@ -14,14 +14,21 @@ return new class () extends Migration {
             $table->uuid('id')->primary();
 
             $table->foreignUuid('user_id')
-                  ->unique()
                   ->constrained('users')
                   ->onDelete('cascade');
 
+            $table->foreignUuid('wallet_id')
+                  ->constrained('wallets')
+                  ->onDelete('cascade');
+
+            $table->string('from_sheba_number', 24);
+            $table->string('to_sheba_number', 24);
+
             $table->double('amount');
-            $table->timestamp('created_at');
+            $table->text('note')->nullable();
             $table->timestamp('approved_at')->nullable();
             $table->timestamp('rejected_at')->nullable();
+            $table->timestamps();
         });
     }
 
