@@ -2,6 +2,7 @@
 
 namespace Modules\V1\Users\Models;
 
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as AuthenticatableUser;
 use Illuminate\Support\Facades\Hash;
@@ -41,6 +42,11 @@ class User extends AuthenticatableUser
         'password',
         'status',
     ];
+
+    protected static function newFactory(): UserFactory
+    {
+        return UserFactory::new();
+    }
 
     protected static function booted(): void
     {

@@ -2,6 +2,8 @@
 
 namespace Modules\V1\Wallets\Models;
 
+use Database\Factories\WalletFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\V1\Users\Models\User;
@@ -19,6 +21,8 @@ use Ramsey\Uuid\Uuid;
  */
 class Wallet extends Model
 {
+    use HasFactory;
+
     public $incrementing = false;
 
     protected $keyType = 'string';
@@ -33,6 +37,11 @@ class Wallet extends Model
         'blocked_amount',
         'currency',
     ];
+
+    protected static function newFactory(): WalletFactory
+    {
+        return WalletFactory::new();
+    }
 
     protected static function booted(): void
     {
