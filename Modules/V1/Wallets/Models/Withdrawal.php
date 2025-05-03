@@ -9,18 +9,18 @@ use Modules\V1\Wallets\Enums\WithdrawalStatus;
 use Ramsey\Uuid\Uuid;
 
 /**
- * @property string           $id
- * @property string           $user_id
- * @property string           $wallet_id
- * @property string           $from_sheba_number
- * @property string           $to_sheba_number
- * @property int              $amount
- * @property ?string          $note
- * @property WithdrawalStatus $status
- * @property ?Carbon          $approved_at
- * @property ?Carbon          $rejected_at
- * @property ?Carbon          $created_at
- * @property Wallet           $wallet
+ * @property string                  $id
+ * @property string                  $user_id
+ * @property string                  $wallet_id
+ * @property string                  $from_sheba_number
+ * @property string                  $to_sheba_number
+ * @property int                     $amount
+ * @property ?string                 $note
+ * @property WithdrawalStatus|string $status
+ * @property ?Carbon                 $confirmed_at
+ * @property ?Carbon                 $canceled_at
+ * @property ?Carbon                 $created_at
+ * @property Wallet                  $wallet
  */
 class Withdrawal extends Model
 {
@@ -30,8 +30,8 @@ class Withdrawal extends Model
 
     protected array $dates = [
         'created_at',
-        'approved_at',
-        'rejected_at',
+        'confirmed_at',
+        'canceled_at',
     ];
 
     /**
@@ -44,8 +44,8 @@ class Withdrawal extends Model
         'to_sheba_number',
         'amount',
         'status',
-        'approved_at',
-        'rejected_at',
+        'confirmed_at',
+        'canceled_at',
     ];
 
     protected static function booted(): void

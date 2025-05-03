@@ -8,6 +8,6 @@ enum WithdrawalStatus: string
 {
     use EnumValueListing;
     case PENDING = 'pending';
-    case APPROVED = 'approved';
-    case REJECTED = 'rejected';
+    case CONFIRMED = 'confirmed';
+    case CANCELED = 'canceled';
 }

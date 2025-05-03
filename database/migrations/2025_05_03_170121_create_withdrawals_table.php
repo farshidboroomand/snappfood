@@ -28,8 +28,8 @@ return new class () extends Migration {
             $table->double('amount');
             $table->text('note')->nullable();
             $table->enum('status', WithdrawalStatus::list())->default(WithdrawalStatus::PENDING);
-            $table->timestamp('approved_at')->nullable();
-            $table->timestamp('rejected_at')->nullable();
+            $table->timestamp('confirmed_at')->nullable();
+            $table->timestamp('canceled_at')->nullable();
             $table->timestamps();
         });
     }
