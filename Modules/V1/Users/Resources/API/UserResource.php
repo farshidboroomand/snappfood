@@ -4,14 +4,10 @@ namespace Modules\V1\Users\Resources\API;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\V1\Users\Models\User;
 
 /**
- * @property string $id
- * @property string $first_name
- * @property string $last_name
- * @property string $email
- * @property string $mobile
- * @property string $password
+ * @mixin User
  */
 class UserResource extends JsonResource
 {
@@ -24,8 +20,8 @@ class UserResource extends JsonResource
             'userId'    => $this->id,
             'firstName' => $this->first_name,
             'lastName'  => $this->last_name,
-            'email'     => $this->email,
-            'mobile'    => $this->mobile
+            'email'     => $this->whenNotNull($this->email),
+            'mobile'    => $this->whenNotNull($this->mobile),
         ];
     }
 }
