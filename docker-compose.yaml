@@ -16,7 +16,7 @@ services:
     container_name: snappfood_mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: lime
+      MYSQL_DATABASE: snappfood
       MYSQL_USER: default
       MYSQL_PASSWORD: secret
     volumes:
