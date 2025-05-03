@@ -2,6 +2,7 @@
 
 namespace Modules\V1\Wallets\Listeners;
 
+use Exception;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -27,10 +28,10 @@ class CreateUserWallet implements ShouldQueue
 
                 $wallet->save();
             });
-        } catch (\Throwable $e) {
+        } catch (Exception $ex) {
             Log::error(__('wallets.create_wallet_failed'), [
                 'user_id' => $event->user->id,
-                'error'   => $e->getMessage(),
+                'error'   => $ex->getMessage(),
             ]);
         }
     }
