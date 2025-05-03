@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Validator as ValidatorObject;
 
@@ -143,20 +144,6 @@ abstract class Action
         );
     }
 
-    protected function validationErrorResponse(
-        array $errors,
-        ?string $message = null,
-        StatusCode $statusCode = StatusCode::UNPROCESSABLE_ENTITY
-    ): JsonResponse {
-        return new JsonResponse(
-            array_filter([
-                'message' => $message,
-                'errors'  => $errors,
-            ]),
-            $statusCode->value
-        );
-    }
-
     protected function errorResponse(
         ErrorCode $errorCode,
         ?string $message = null,
@@ -169,5 +156,10 @@ abstract class Action
             ]),
             $statusCode->value
         );
+    }
+
+    protected function logFailedReasonMessage(string $message, string $failedReason): void
+    {
+        Log::error(sprintf("$message due to: %s", $failedReason));
     }
 }
