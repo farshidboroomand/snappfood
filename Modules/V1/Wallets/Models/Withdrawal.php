@@ -5,20 +5,22 @@ namespace Modules\V1\Wallets\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Modules\V1\Wallets\Enums\WithdrawalStatus;
 use Ramsey\Uuid\Uuid;
 
 /**
- * @property string  $id
- * @property string  $user_id
- * @property string  $wallet_id
- * @property string  $from_sheba_number
- * @property string  $to_sheba_number
- * @property int     $amount
- * @property ?string $note
- * @property ?Carbon $approved_at
- * @property ?Carbon $rejected_at
- * @property ?Carbon $created_at
- * @property Wallet  $wallet
+ * @property string           $id
+ * @property string           $user_id
+ * @property string           $wallet_id
+ * @property string           $from_sheba_number
+ * @property string           $to_sheba_number
+ * @property int              $amount
+ * @property ?string          $note
+ * @property WithdrawalStatus $status
+ * @property ?Carbon          $approved_at
+ * @property ?Carbon          $rejected_at
+ * @property ?Carbon          $created_at
+ * @property Wallet           $wallet
  */
 class Withdrawal extends Model
 {
@@ -41,6 +43,7 @@ class Withdrawal extends Model
         'from_sheba_number',
         'to_sheba_number',
         'amount',
+        'status',
         'approved_at',
         'rejected_at',
     ];
