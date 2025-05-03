@@ -56,4 +56,9 @@ class Wallet extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function hasSufficientBalance(): bool
+    {
+        return $this->available_balance > 0;
+    }
 }
