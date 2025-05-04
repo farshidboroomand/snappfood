@@ -13,7 +13,6 @@ return new class () extends Migration {
         Schema::create('user_profiles', static function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')
-                  ->unique()
                   ->constrained('users')
                   ->onDelete('cascade');
             $table->string('sheba_number', 24)->nullable();

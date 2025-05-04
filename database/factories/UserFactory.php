@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 use Modules\V1\Users\Models\User;
 use Ramsey\Uuid\Uuid;
 
@@ -14,11 +15,11 @@ class UserFactory extends Factory
     {
         return [
             'id'         => Uuid::uuid4()->toString(),
-            'first_name' => $this->faker->firstName,
-            'last_name'  => $this->faker->lastName,
-            'email'      => $this->faker->unique()->safeEmail,
-            'mobile'     => $this->faker->unique()->phoneNumber,
-            'password'   => bcrypt('password'),
+            'first_name' => fake()->firstNameMale(),
+            'last_name'  => fake()->lastName(),
+            'email'      => fake()->unique()->safeEmail,
+            'mobile'     => fake()->unique()->phoneNumber,
+            'password'   => Hash::make('password'),
         ];
     }
 }
