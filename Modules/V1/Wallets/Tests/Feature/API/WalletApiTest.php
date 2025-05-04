@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\V1\Users\Tests\Feature;
+namespace Modules\V1\Wallets\Tests\Feature\API;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\V1\Users\Models\User;
