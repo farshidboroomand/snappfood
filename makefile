@@ -24,3 +24,6 @@ clear:
 
 test:
 	$(EXEC) composer test
+
+api-doc:
+	$(EXEC) composer generate-api-doc

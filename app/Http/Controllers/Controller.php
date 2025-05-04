@@ -12,6 +12,16 @@ abstract class Controller extends BaseController
 {
     use ValidatesRequests;
 
+    /**
+     * @OA\Info(
+     *     title="Snappfood API",
+     *     version="V1",
+     *     description="API documentation for the Snappfood.",
+     *     @OA\Contact(
+     *         email="farshidboroomand@gmail.com.com"
+     *     )
+     * )
+     */
     protected function handleAction(Action $action): JsonResponse
     {
         if (!$action->validate()) {
