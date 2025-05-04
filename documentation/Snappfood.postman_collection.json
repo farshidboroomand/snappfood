@@ -1,0 +1,1717 @@
+{
+	"info": {
+		"_postman_id": "fc19503a-5af0-4b45-a53e-e877d96a6120",
+		"name": "Snappfood",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23692981"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create A New User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "farshid",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "boroomand",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "farshid332ddd222@gmail.comd",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "91240490377222233d",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "farshid",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "boroomand",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "farshid@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "9124049032",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12123",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 09:36:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"userId\": \"4ebe61f9-97de-4505-a4af-338559cce665\",\n        \"firstName\": \"farshid\",\n        \"lastName\": \"boroomand\",\n        \"email\": \"farshid@gmail.com\",\n        \"mobile\": \"9124049032\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User Profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "sheba_number",
+									"value": "IR0000668592832755939417",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/users/64403b48-0c99-4a7f-a090-e86d8828eac2/profiles/73c82b32-246a-4d39-bdc6-0ec04fa52513",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"64403b48-0c99-4a7f-a090-e86d8828eac2",
+								"profiles",
+								"73c82b32-246a-4d39-bdc6-0ec04fa52513"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "farshid",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "boroomand",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "farshid@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "9124049032",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12123",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 09:36:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"userId\": \"4ebe61f9-97de-4505-a4af-338559cce665\",\n        \"firstName\": \"farshid\",\n        \"lastName\": \"boroomand\",\n        \"email\": \"farshid@gmail.com\",\n        \"mobile\": \"9124049032\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "farshid",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "boroomand",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "farshid@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9124049032",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/users?page=1&per_page=12",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "farshid",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "boroomand",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "farshid@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "9124049032",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12123",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 09:36:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user_id\": \"4ebe61f9-97de-4505-a4af-338559cce665\",\n        \"first_name\": \"farshid\",\n        \"last_name\": \"boroomand\",\n        \"email\": \"farshid@gmail.com\",\n        \"mobile\": \"9124049032\"\n    }\n}"
+						},
+						{
+							"name": "Get All Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "farshid",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "boroomand",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "farshid@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "9124049032",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/users?page=1&per_page=12",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "12"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 11:58:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"user_id\": \"c7f79728-e062-45b5-828e-3b11f9fef41d\",\n            \"first_name\": \"farshid\",\n            \"last_name\": \"boroomand\",\n            \"email\": \"farshidsss4334@gmail.com\",\n            \"mobile\": \"91240490377433\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Wallets",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Get All Users Withdrawals",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "farshid",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "boroomand",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "farshid@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "9124049032",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_admin_url}}/withdrawals?page=1&per_page=15",
+									"host": [
+										"{{base_admin_url}}"
+									],
+									"path": [
+										"withdrawals"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "15"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get USer Wallet",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "first_name",
+													"value": "farshid",
+													"type": "text"
+												},
+												{
+													"key": "last_name",
+													"value": "boroomand",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "farshid@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "mobile",
+													"value": "9124049032",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "12123",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/wallets/54e265bb-bcd2-4ce1-bcae-8969e341b9d0?page=1&per_page=12",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"wallets",
+												"54e265bb-bcd2-4ce1-bcae-8969e341b9d0"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "per_page",
+													"value": "12"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 03 May 2025 12:44:08 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"walletId\": \"54e265bb-bcd2-4ce1-bcae-8969e341b9d0\",\n        \"user\": {\n            \"userId\": \"66520dc0-91e3-43d2-969e-ecd778a9af3c\",\n            \"firstName\": \"farshid\",\n            \"lastName\": \"boroomand\",\n            \"email\": \"farshid332ddd222@gmail.comd\"\n        }\n    }\n}"
+								},
+								{
+									"name": "Validation failed",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "first_name",
+													"value": "farshid",
+													"type": "text"
+												},
+												{
+													"key": "last_name",
+													"value": "boroomand",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "farshid@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "mobile",
+													"value": "9124049032",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "12123",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/wallets/54e265bb-bcd2-4ce1-bcae-8969e341b9d0?page=1&per_page=12",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"wallets",
+												"54e265bb-bcd2-4ce1-bcae-8969e341b9d0"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "per_page",
+													"value": "12"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 03 May 2025 12:48:46 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": {\n        \"wallet_id\": [\n            \"The selected wallet id is invalid.\"\n        ]\n    }\n}"
+								},
+								{
+									"name": "Get All Users Withdrawals",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "first_name",
+													"value": "farshid",
+													"type": "text"
+												},
+												{
+													"key": "last_name",
+													"value": "boroomand",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "farshid@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "mobile",
+													"value": "9124049032",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "12123",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_admin_url}}/withdrawals?page=1&per_page=15",
+											"host": [
+												"{{base_admin_url}}"
+											],
+											"path": [
+												"withdrawals"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "per_page",
+													"value": "15"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 03 May 2025 19:55:13 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": \"102beb09-3b20-40df-9697-1862d41de4c8\",\n            \"amount\": 10000,\n            \"from_sheba_number\": \"IR0000484068623094074275\",\n            \"to_sheba_number\": \"IR0000484068623094074271\",\n            \"note\": null,\n            \"status\": \"pending\",\n            \"created_at\": \"2025-05-03T19:25:00.000000Z\"\n        },\n        {\n            \"id\": \"e63778ec-345d-466b-950c-f11f645d95a1\",\n            \"amount\": 10000,\n            \"from_sheba_number\": \"IR0000484068623094074275\",\n            \"to_sheba_number\": \"IR0000484068623094074271\",\n            \"note\": null,\n            \"status\": \"pending\",\n            \"created_at\": \"2025-05-03T19:24:51.000000Z\"\n        },\n        {\n            \"id\": \"32a3a3ee-ff22-4781-83c5-21e5bc76c771\",\n            \"amount\": 10000,\n            \"from_sheba_number\": \"IR0000484068623094074275\",\n            \"to_sheba_number\": \"IR0000484068623094074271\",\n            \"note\": null,\n            \"status\": \"pending\",\n            \"created_at\": \"2025-05-03T19:24:48.000000Z\"\n        },\n        {\n            \"id\": \"28d0caec-4629-4a3e-a918-ca24dba9df57\",\n            \"amount\": 10000,\n            \"from_sheba_number\": \"IR0000484068623094074275\",\n            \"to_sheba_number\": \"IR0000484068623094074271\",\n            \"note\": null,\n            \"status\": \"pending\",\n            \"created_at\": \"2025-05-03T19:24:06.000000Z\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Confirm or cancel withdrawal by admin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "confirmed",
+											"type": "text"
+										},
+										{
+											"key": "note",
+											"value": "invalid",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_admin_url}}/withdrawals/f4658127-c100-463f-bf51-3ec4f5f8ff08",
+									"host": [
+										"{{base_admin_url}}"
+									],
+									"path": [
+										"withdrawals",
+										"f4658127-c100-463f-bf51-3ec4f5f8ff08"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Cancel Successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "status",
+													"value": "canceled",
+													"type": "text"
+												},
+												{
+													"key": "note",
+													"value": "invalid",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_admin_url}}/withdrawals/5ae46115-48c1-4896-9472-51f922ce90ec",
+											"host": [
+												"{{base_admin_url}}"
+											],
+											"path": [
+												"withdrawals",
+												"5ae46115-48c1-4896-9472-51f922ce90ec"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 03 May 2025 20:44:43 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Withdrawal request canceled\",\n    \"data\": {\n        \"id\": \"5ae46115-48c1-4896-9472-51f922ce90ec\",\n        \"amount\": 790000,\n        \"from_sheba_number\": \"IR0000484068623094074275\",\n        \"to_sheba_number\": \"IR0000484068623094074271\",\n        \"note\": \"invalid\",\n        \"status\": \"canceled\",\n        \"created_at\": \"2025-05-03T20:44:32.000000Z\"\n    }\n}"
+								},
+								{
+									"name": "Confirmed Successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "status",
+													"value": "confirmed",
+													"type": "text"
+												},
+												{
+													"key": "note",
+													"value": "invalid",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_admin_url}}/withdrawals/f4658127-c100-463f-bf51-3ec4f5f8ff08",
+											"host": [
+												"{{base_admin_url}}"
+											],
+											"path": [
+												"withdrawals",
+												"f4658127-c100-463f-bf51-3ec4f5f8ff08"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 03 May 2025 20:46:17 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Withdrawal request confirmed successfully\",\n    \"data\": {\n        \"id\": \"f4658127-c100-463f-bf51-3ec4f5f8ff08\",\n        \"amount\": 790000,\n        \"from_sheba_number\": \"IR0000484068623094074275\",\n        \"to_sheba_number\": \"IR0000484068623094074271\",\n        \"note\": null,\n        \"status\": \"confirmed\",\n        \"created_at\": \"2025-05-03T20:46:09.000000Z\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get All Users Wallet",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "farshid",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "boroomand",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "farshid@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9124049032",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/wallets/54e265bb-bcd2-4ce1-bcae-8969e341b9d0?page=1&per_page=12",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallets",
+								"54e265bb-bcd2-4ce1-bcae-8969e341b9d0"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get USer Wallet",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "farshid",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "boroomand",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "farshid@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "9124049032",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/wallets/54e265bb-bcd2-4ce1-bcae-8969e341b9d0?page=1&per_page=12",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallets",
+										"54e265bb-bcd2-4ce1-bcae-8969e341b9d0"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "12"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 12:44:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"wallet_id\": \"54e265bb-bcd2-4ce1-bcae-8969e341b9d0\",\n        \"user\": {\n            \"user_id\": \"66520dc0-91e3-43d2-969e-ecd778a9af3c\",\n            \"first_name\": \"farshid\",\n            \"last_name\": \"boroomand\",\n            \"email\": \"farshid332ddd222@gmail.comd\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Validation failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "farshid",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "boroomand",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "farshid@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "9124049032",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/wallets/54e265bb-bcd2-4ce1-bcae-8969e341b9d0?page=1&per_page=12",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallets",
+										"54e265bb-bcd2-4ce1-bcae-8969e341b9d0"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "12"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 12:48:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": {\n        \"wallet_id\": [\n            \"The selected wallet id is invalid.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Withdrawal Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "price",
+									"value": "790000",
+									"type": "text"
+								},
+								{
+									"key": "from_sheba_number",
+									"value": "IR0000484068623094074275",
+									"type": "text"
+								},
+								{
+									"key": "to_sheba_number",
+									"value": "IR0000484068623094074271",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/wallets/01bb891d-3418-4361-853a-e844c427d996/withdrawals/sheba",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallets",
+								"01bb891d-3418-4361-853a-e844c427d996",
+								"withdrawals",
+								"sheba"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Withdrawal Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "price",
+											"value": "10000",
+											"type": "text"
+										},
+										{
+											"key": "from_sheba_number",
+											"value": "IR0000484068623094074275",
+											"type": "text"
+										},
+										{
+											"key": "to_sheba_number",
+											"value": "IR0000484068623094074271",
+											"type": "text"
+										},
+										{
+											"key": "note",
+											"value": "test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/wallets/062364a9-eecd-4a06-87e0-0009c8594e0c/withdrawals/sheba",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallets",
+										"062364a9-eecd-4a06-87e0-0009c8594e0c",
+										"withdrawals",
+										"sheba"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 19:25:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Withdrawal request created successfully\",\n    \"data\": {\n        \"id\": \"102beb09-3b20-40df-9697-1862d41de4c8\",\n        \"amount\": 10000,\n        \"from_sheba_number\": \"IR0000484068623094074275\",\n        \"to_sheba_number\": \"IR0000484068623094074271\",\n        \"note\": null,\n        \"status\": \"pending\",\n        \"created_at\": \"2025-05-03T19:25:00.000000Z\"\n    }\n}"
+						},
+						{
+							"name": "Bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "price",
+											"value": "790000",
+											"type": "text"
+										},
+										{
+											"key": "from_sheba_number",
+											"value": "IR0000484068623094074275",
+											"type": "text"
+										},
+										{
+											"key": "to_sheba_number",
+											"value": "IR0000484068623094074275",
+											"type": "text"
+										},
+										{
+											"key": "note",
+											"value": "test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/wallets/0b6a467f-86ac-4447-9419-e8a520cf33de/withdrawals/sheba",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallets",
+										"0b6a467f-86ac-4447-9419-e8a520cf33de",
+										"withdrawals",
+										"sheba"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 May 2025 23:22:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Sheba numbers cannot be the same\",\n    \"code\": 400\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "base_admin_url",
+			"value": "localhost/admin/v1",
+			"type": "string"
+		},
+		{
+			"key": "mock_api",
+			"value": "https://7b70325c-56fe-46cd-8b1e-fc3b72fb6951.mock.pstmn.io",
+			"type": "string"
+		}
+	]
+}
