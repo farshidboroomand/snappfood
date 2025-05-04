@@ -1,10 +1,5 @@
 # Snappfood Api V1
-## Table of Contents
 
-- [Up And Running](#up-and-running)
-- [Documentation](#documentation)
-
----
 ## Up And Running
 
 Please make sure you have docker in your system.
