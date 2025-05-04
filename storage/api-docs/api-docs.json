@@ -1,0 +1,864 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Snappfood API",
+        "description": "API documentation for the Snappfood.",
+        "contact": {
+            "email": "farshidboroomand@gmail.com.com"
+        },
+        "version": "V1"
+    },
+    "paths": {
+        "/api/v1/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get a paginated list of users",
+                "description": "Returns a paginated list of all registered users.",
+                "operationId": "getAllUsers",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Number of items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "example": "2bb3ded7-00be-4763-8016-9d072ba374d3"
+                                                    },
+                                                    "first_name": {
+                                                        "type": "string",
+                                                        "example": "Charlie"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string",
+                                                        "example": "Stehr"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "format": "email",
+                                                        "example": "clemmie.bartell@example.org"
+                                                    },
+                                                    "mobile": {
+                                                        "type": "string",
+                                                        "example": "+1-240-842-4579"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to retrieve users"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create a new user",
+                "description": "Creates a new user with the given information.",
+                "operationId": "createUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "email",
+                                    "mobile",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "farshid"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "boroomand"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "farshid@gmail.com"
+                                    },
+                                    "mobile": {
+                                        "type": "string",
+                                        "example": "9124049032"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "secret123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "userId": {
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "example": "4ebe61f9-97de-4505-a4af-338559cce665"
+                                                },
+                                                "firstName": {
+                                                    "type": "string",
+                                                    "example": "farshid"
+                                                },
+                                                "lastName": {
+                                                    "type": "string",
+                                                    "example": "boroomand"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "farshid@gmail.com"
+                                                },
+                                                "mobile": {
+                                                    "type": "string",
+                                                    "example": "9124049032"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "errors": {
+                                            "properties": {
+                                                "first_name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The first name field is required."
+                                                    }
+                                                },
+                                                "last_name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The last name field is required."
+                                                    }
+                                                },
+                                                "email": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The email field is required."
+                                                    }
+                                                },
+                                                "mobile": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The mobile field is required."
+                                                    }
+                                                },
+                                                "password": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The password field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{user_id}/profiles/{profile_id}": {
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update a user profile",
+                "description": "Allows updating the user's sheba number and national ID.",
+                "operationId": "updateUserProfile",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "UUID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "2bb3ded7-00be-4763-8016-9d072ba374d3"
+                        }
+                    },
+                    {
+                        "name": "profile_id",
+                        "in": "path",
+                        "description": "UUID of the user profile",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "a4b73c3c-5d3b-4f6b-9f58-0935b65430c2"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "sheba_number": {
+                                        "description": "Iranian sheba number (must be 24 characters, start with IR)",
+                                        "type": "string",
+                                        "example": "IR123456789012345678901234"
+                                    },
+                                    "national_id": {
+                                        "description": "Iranian national ID (exactly 10 digits)",
+                                        "type": "string",
+                                        "example": "1234567890"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Profile updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "profileId": {
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "example": "a4b73c3c-5d3b-4f6b-9f58-0935b65430c2"
+                                                },
+                                                "userId": {
+                                                    "type": "string",
+                                                    "format": "uuid",
+                                                    "example": "2bb3ded7-00be-4763-8016-9d072ba374d3"
+                                                },
+                                                "shebaNumber": {
+                                                    "type": "string",
+                                                    "example": "IR123456789012345678901234"
+                                                },
+                                                "nationalId": {
+                                                    "type": "string",
+                                                    "example": "1234567890"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Profile not found"
+                    },
+                    "422": {
+                        "description": "Validation failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "errors": {
+                                            "properties": {
+                                                "sheba_number": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The sheba number format is invalid."
+                                                    }
+                                                },
+                                                "national_id": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The national id must be 10 digits."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/wallets/{wallet_id}": {
+            "get": {
+                "tags": [
+                    "Wallets"
+                ],
+                "summary": "Fetch a user's wallet by wallet ID",
+                "description": "Returns wallet details along with user information.",
+                "operationId": "getUserWallet",
+                "parameters": [
+                    {
+                        "name": "wallet_id",
+                        "in": "path",
+                        "description": "UUID of the wallet",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "9e3342a5-621f-4d03-9a96-cd113fbba05f"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Wallet fetched successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "walletId": {
+                                                    "type": "string",
+                                                    "example": "9e3342a5-621f-4d03-9a96-cd113fbba05f"
+                                                },
+                                                "balance": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 1000000
+                                                },
+                                                "availableBalance": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 800000
+                                                },
+                                                "blockedAmount": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 200000
+                                                },
+                                                "currency": {
+                                                    "type": "string",
+                                                    "example": "IRT"
+                                                },
+                                                "user": {
+                                                    "properties": {
+                                                        "userId": {
+                                                            "type": "string",
+                                                            "example": "f0576399-38fc-4846-bc16-a09d16a44437"
+                                                        },
+                                                        "firstName": {
+                                                            "type": "string",
+                                                            "example": "Noah"
+                                                        },
+                                                        "lastName": {
+                                                            "type": "string",
+                                                            "example": "Lakin"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "format": "email",
+                                                            "example": "noah.lakin@example.com"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Wallet not found"
+                    },
+                    "500": {
+                        "description": "Server error while retrieving wallet"
+                    }
+                }
+            }
+        },
+        "/api/v1/wallets/{wallet_id}/withdrawals/sheba": {
+            "post": {
+                "tags": [
+                    "Wallets"
+                ],
+                "summary": "Create a withdrawal request to a sheba number",
+                "description": "Creates a withdrawal request from the user's wallet to a given sheba number.",
+                "operationId": "createShebaWithdrawal",
+                "parameters": [
+                    {
+                        "name": "wallet_id",
+                        "in": "path",
+                        "description": "UUID of the wallet",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "d4211cc3-c2a2-4eeb-8d4d-bf0c4fc64547"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "price",
+                                    "from_sheba_number",
+                                    "to_sheba_number"
+                                ],
+                                "properties": {
+                                    "price": {
+                                        "type": "integer",
+                                        "example": 100000
+                                    },
+                                    "from_sheba_number": {
+                                        "type": "string",
+                                        "example": "IR0000314596741760846999"
+                                    },
+                                    "to_sheba_number": {
+                                        "type": "string",
+                                        "example": "IR0000314596741760846888"
+                                    },
+                                    "note": {
+                                        "type": "string",
+                                        "example": "Transfer for monthly expenses"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Withdrawal request created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "withdrawalId": {
+                                                    "type": "string",
+                                                    "example": "cfffe99a-53fc-4abf-87c3-f7c5e58d022a"
+                                                },
+                                                "amount": {
+                                                    "type": "integer",
+                                                    "example": 100000
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "pending"
+                                                },
+                                                "note": {
+                                                    "type": "string",
+                                                    "example": "Transfer for monthly expenses"
+                                                },
+                                                "fromShebaNumber": {
+                                                    "type": "string",
+                                                    "example": "IR0000314596741760846999"
+                                                },
+                                                "toShebaNumber": {
+                                                    "type": "string",
+                                                    "example": "IR0000314596741760846888"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Client error (e.g., insufficient balance or sheba mismatch)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Insufficient balance"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "errors": {
+                                            "properties": {
+                                                "price": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The price must be at least 10000."
+                                                    }
+                                                },
+                                                "from_sheba_number": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The from sheba number format is invalid."
+                                                    }
+                                                },
+                                                "to_sheba_number": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The to sheba number format is invalid."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/admin/v1/withdrawals": {
+            "get": {
+                "tags": [
+                    "Admin Withdrawals"
+                ],
+                "summary": "Get all withdrawal requests (Admin)",
+                "description": "Returns a paginated list of all withdrawal requests for admin review.",
+                "operationId": "getAllAdminWithdrawals",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number for pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Number of results per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of withdrawal requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "withdrawalId": {
+                                                        "type": "string",
+                                                        "example": "c7b1e76e-bc33-4c76-bd13-9e8a9dc63aa2"
+                                                    },
+                                                    "amount": {
+                                                        "type": "integer",
+                                                        "example": 500000
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "pending"
+                                                    },
+                                                    "note": {
+                                                        "type": "string",
+                                                        "example": "Urgent request"
+                                                    },
+                                                    "fromShebaNumber": {
+                                                        "type": "string",
+                                                        "example": "IR0000314596741760846999"
+                                                    },
+                                                    "toShebaNumber": {
+                                                        "type": "string",
+                                                        "example": "IR0000314596741760846888"
+                                                    },
+                                                    "createdAt": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-05-04T10:20:30Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error while fetching withdrawals"
+                    }
+                }
+            }
+        },
+        "/admin/v1/withdrawals/{withdrawal_id}": {
+            "post": {
+                "tags": [
+                    "Admin Withdrawals"
+                ],
+                "summary": "Change the status of a withdrawal request (Admin)",
+                "description": "Allows an admin to confirm or cancel a withdrawal request.",
+                "operationId": "changeWithdrawalRequestStatus",
+                "parameters": [
+                    {
+                        "name": "withdrawal_id",
+                        "in": "path",
+                        "description": "UUID of the withdrawal to update",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "a123e456-e89b-12d3-a456-426614174000"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "status"
+                                ],
+                                "properties": {
+                                    "status": {
+                                        "description": "New status of the withdrawal",
+                                        "type": "string",
+                                        "enum": [
+                                            "confirmed",
+                                            "canceled"
+                                        ],
+                                        "example": "confirmed"
+                                    },
+                                    "note": {
+                                        "description": "Reason for cancellation (required if status is 'canceled')",
+                                        "type": "string",
+                                        "example": "Duplicate request or invalid details"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Withdrawal status updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Withdrawal confirmed."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "withdrawalId": {
+                                                    "type": "string",
+                                                    "example": "a123e456-e89b-12d3-a456-426614174000"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "confirmed"
+                                                },
+                                                "note": {
+                                                    "type": "string",
+                                                    "example": null
+                                                },
+                                                "confirmedAt": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-05-04T11:00:00Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request or already confirmed/canceled",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "This withdrawal is already confirmed."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Withdrawal not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Withdrawal not found."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "errors": {
+                                            "properties": {
+                                                "status": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The selected status is invalid."
+                                                    }
+                                                },
+                                                "note": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The note field is required when status is canceled."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Users",
+            "description": "Users"
+        },
+        {
+            "name": "Wallets",
+            "description": "Wallets"
+        },
+        {
+            "name": "Admin Withdrawals",
+            "description": "Admin Withdrawals"
+        }
+    ]
+}

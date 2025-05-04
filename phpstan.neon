@@ -1,0 +1,19 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+        - config
+        - Modules
+
+#    excludePaths:
+#        -
+
+    level: 4
+
+    bootstrapFiles:
+        - vendor/autoload.php
+        - vendor/nunomaduro/larastan/bootstrap.php
+
+    reportUnmatchedIgnoredErrors: true
