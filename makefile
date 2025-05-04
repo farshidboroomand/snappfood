@@ -21,3 +21,6 @@ clear:
 	$(EXEC) php artisan config:clear
 	$(EXEC) php artisan route:clear
 	$(EXEC) php artisan cache:clear
+
+test:
+	$(EXEC) composer test

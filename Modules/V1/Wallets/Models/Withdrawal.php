@@ -3,6 +3,8 @@
 namespace Modules\V1\Wallets\Models;
 
 use Carbon\Carbon;
+use Database\Factories\WithdrawalFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\V1\Wallets\Enums\WithdrawalStatus;
@@ -24,6 +26,8 @@ use Ramsey\Uuid\Uuid;
  */
 class Withdrawal extends Model
 {
+    use HasFactory;
+
     public $incrementing = false;
 
     protected $keyType = 'string';
@@ -47,6 +51,11 @@ class Withdrawal extends Model
         'confirmed_at',
         'canceled_at',
     ];
+
+    protected static function newFactory(): WithdrawalFactory
+    {
+        return WithdrawalFactory::new();
+    }
 
     protected static function booted(): void
     {
